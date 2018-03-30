@@ -7,11 +7,11 @@ namespace DeathValley.Models
 {
     public class Parameters
     {
-        int Parameter1 { get; set; }
-        int Parameter2 { get; set; }
-        int Parameter3 { get; set; }
-        int Step { get; set; }
-        int Range1 { get; set; }
-        int Range2 { get; set; }
+        public int ParameterA { get; set; }
+        public int ParameterB { get; set; }
+        public int ParameterC { get; set; }
+        public int Step { get; set; }
+        public int Range1 { get; set; }
+        public int Range2 { get; set; }
     }
 }
