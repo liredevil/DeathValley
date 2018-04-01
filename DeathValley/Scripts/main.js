@@ -44,26 +44,26 @@ function validate(parameters) {
     if (parameters.ParameterA == '' || parameters.ParameterB == '' || parameters.ParameterC == '' ||
         parameters.Step == '' || parameters.Range1 == '' || parameters.Range2 == '') {
 
-        alert("Введите данные");
+        alert("enter the all data");
         event.preventDefault();
 
         return false;
     }
     else if (parameters.ParameterA == 0) {
-        alert("параметр a не может быть 0");
+        alert("parameter a can not be 0");
         event.preventDefault();
 
         return false;
     }
     else if (parameters.Step <= 0)
     {
-        alert("Шаг не может быть равным меньше нуля или нулем");
+        alert("The step must be> 0");
         event.preventDefault();
 
         return false;
     }
     else if (parameters.Range1 >= parameters.Range2) {
-        alert("Промежуток не корректный");
+        alert("Step is not correct");
         event.preventDefault();
 
         return false;

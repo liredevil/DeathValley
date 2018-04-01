@@ -21,21 +21,7 @@ namespace DeathValley.Controllers
             List<Point> getPoints = new List<Point>();
             Point point = new Point();
 
-            if (parameters.ParameterA == 0)
-            {
-                ModelState.AddModelError("ParameterA", "Пустой");
-
-                return null;
-            }
-            if (parameters.Step <=  0)
-            {
-                return null;
-            }
-            if (parameters.Range1 >= parameters.Range2)
-            {
-                return null;
-            }
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && ValidateParameters(parameters) == true)
             {
                 for (int x = parameters.Range1; x < parameters.Range2; x += parameters.Step)
                 {
@@ -46,8 +32,25 @@ namespace DeathValley.Controllers
                 return Json(getPoints, JsonRequestBehavior.AllowGet);
             }
 
-
             return null;
+        }
+
+        public bool ValidateParameters(Parameters parameters)
+        {
+            if (parameters.ParameterA == 0)
+            {
+                return false;
+            }
+            if (parameters.Step <= 0)
+            {
+                return false;
+            }
+            if (parameters.Range1 >= parameters.Range2)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
